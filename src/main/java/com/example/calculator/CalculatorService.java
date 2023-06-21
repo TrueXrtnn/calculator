@@ -8,28 +8,27 @@ public class CalculatorService {
         return "<b>Добро пожаловать в калькулятор!</b>";
     }
 
-    public String plus(int num1, int num2) {
+    public int plus(int num1, int num2) {
 
         int sum = num1 + num2;
-        return num1 + "+" + num2 + "=" + sum;
+        return sum;
 
     }
 
-    public String minus(int num1, int num2) {
+    public int minus(int num1, int num2) {
         int result = num1 - num2;
-        return num1 + "-" + num2 + "=" + result;
+        return result;
     }
 
-    public String multiply(int num1, int num2) {
+    public int multiply(int num1, int num2) {
         int result = num1 * num2;
-        return num1 + "*" + num2 + "=" + result;
+        return result;
     }
 
-    public String divide(int num1, int num2) {
+    public double divide(double num1, double num2) {
         if (num2 != 0) {
-            int result = num1 / num2;
-            return num1 + "/" + num2 + "=" + result;
-        } else return "На ноль делить нельзя!";
+            return num1 / num2;
+        } else throw new IllegalArgumentException();
     }
 }
 

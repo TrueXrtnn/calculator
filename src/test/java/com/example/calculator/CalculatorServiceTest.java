@@ -1,6 +1,7 @@
 package com.example.calculator;
 
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,8 +21,8 @@ class CalculatorServiceTest {
     void plus() {
         var expected1 = service.plus(1, 2);
         var expected2 = service.plus(-4, 2);
-        assertEquals("1+2=3", expected1);
-        assertEquals("-4+2=-2", expected2);
+        assertEquals(3, expected1);
+        assertEquals(-2, expected2);
 
     }
 
@@ -29,29 +30,29 @@ class CalculatorServiceTest {
     void minus() {
         var expected1 = service.minus(1, 2);
         var expected2 = service.minus(-4, 2);
-        assertEquals("1-2=1", expected1);
-        assertEquals("-4-2=-6", expected2);
+        assertEquals(-1, expected1);
+        assertEquals(-6, expected2);
     }
 
     @Test
     void multiply() {
         var expected1 = service.multiply(1, 2);
         var expected2 = service.multiply(-4, 2);
-        assertEquals("1*2=2", expected1);
-        assertEquals("-4*2=-8", expected2);
+        assertEquals(2, expected1);
+        assertEquals(-8, expected2);
     }
 
     @Test
     void divide() {
         var expected1 = service.divide(1, 2);
         var expected2 = service.divide(-4, 2);
-        assertEquals("1/2=0.5", expected1);
-        assertEquals("-4/2=-2.0", expected2);
+        assertEquals(0.5, expected1);
+        assertEquals(-2.0, expected2);
     }
 
     @Test
     void divideForZero() {
-       assertThrows( IllegalArgumentException.class, ()-> service.divide(1, 0));
-        assertThrows( IllegalArgumentException.class, ()-> service.divide(-7, 0));
+        assertThrows(IllegalArgumentException.class, () -> service.divide(1, 0));
+        assertThrows(IllegalArgumentException.class, () -> service.divide(-7, 0));
     }
 }
